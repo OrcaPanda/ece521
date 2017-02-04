@@ -22,14 +22,24 @@ Z = tf.Variable([[4,2],[1,5],[4,7]])
 
 Y = euclid_distance(X, Z)
 
-def get_responsibilities(D, test_point_index, k):
-	values, indices = tf.nn.top_k(D[test_point_index, :], k)
-	print values
-	print "indices next"
-	print indices
+def get_responsibilities(D, dims, k):
+	indices = tf.constant([[0], [2]])
+	updates = tf.constant([8,8,8,8])
+	shape = tf.constant([4, 4])
 
-get_responsibilities(Y, 2, 1)
+	values, indices = tf.nn.top_k(tf.multiply(D,-1), k)
 
-#sess = tf.Session()
-#sess.run(tf.global_variables_initializer())
-#print sess.run(Y)
+	return tf.transpose(tf.reshape(tf.tile(tf.range(0,dims[0]),[dims[1]]),dims))
+	
+	#indices = tf.constant([[0],[1]])
+	#updates = tf.constant(1/k)
+	#shape = tf.constant(dims)
+	#return tf.scatter_nd(indices, updates, shape)
+
+
+R = get_responsibilities(Y, [3,3], 1)
+
+sess = tf.Session()
+sess.run(tf.global_variables_initializer())
+print sess.run(Y)
+print sess.run(R)
