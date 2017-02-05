@@ -17,10 +17,10 @@ def euclid_distance(X, Z):
 	Z = (tf.expand_dims(Z, 0))
 	return tf.reduce_sum(tf.squared_difference(X, Z), 2)
 
-X = tf.Variable([[1,2],[3,2],[4,4]])
-Z = tf.Variable([[4,2],[1,5],[4,7]])
+#X = tf.Variable([[1,2],[3,2],[4,4]])
+#Z = tf.Variable([[4,2],[1,5],[4,7]])
 
-Y = euclid_distance(X, Z)
+#Y = euclid_distance(X, Z)
 
 def get_responsibilities(D, dims, k):
 	#Get the indices of the shortest distances
@@ -36,9 +36,23 @@ def get_responsibilities(D, dims, k):
 	return tf.SparseTensor(update_indices, values, dims)
 
 
-Y = get_responsibilities(Y, [3,3], 2)
+#Y = get_responsibilities(Y, [3,3], 2)
+
+#Placeholders for data
+trainD = tf.placeholder(tf.float64, [None])
+trainT = tf.placeholder(tf.float64, [None])
+comparisonD = tf.placeholder(tf.float64, [None])
+comparisonT = tf.placeholder(tf.float64, [None])
 
 sess = tf.Session()
 sess.run(tf.global_variables_initializer())
+
+# Question 1.3.2
+k = 1
+D_train = euclid_distance(trainD, comparisonD)
+R_train = get_responsibilities(D_train, [trainD.get_shape[0], comparisonD.get_shape[0]],k) 
+P_train = tf.sparse_tensor_dense_matmul(R_train, trainD)
+Y = tf.reduce_sum(tf.pow(tf.subtract(P_train, comparisonT),2)) / (2*trainData.size)
+
 
 print sess.run(Y)
