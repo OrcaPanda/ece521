@@ -23,23 +23,22 @@ Z = tf.Variable([[4,2],[1,5],[4,7]])
 Y = euclid_distance(X, Z)
 
 def get_responsibilities(D, dims, k):
-	indices = tf.constant([[0], [2]])
-	updates = tf.constant([8,8,8,8])
-	shape = tf.constant([4, 4])
-
+	#Get the indices of the shortest distances
 	values, indices = tf.nn.top_k(tf.multiply(D,-1), k)
+	#and reshape them into a 1D tensor
+	indices = tf.reshape(indices, [dims[0]*k, ])
+	#get indices for where to update the responsibility vectors
+	I = tf.reshape(tf.add(tf.expand_dims(tf.range(0, dims[0]),1), tf.zeros([dims[0], k], tf.int32)), [dims[0] * k, ])
+	#convert the indices to int64
+	update_indices = tf.to_int64(tf.stack([I, indices], 1))
+	#The responsibility vectors have 1/k for each value
+	values = tf.add(tf.zeros([dims[0] * k, ]), 1.0/k)
+	return tf.SparseTensor(update_indices, values, dims)
 
-	return tf.transpose(tf.reshape(tf.tile(tf.range(0,dims[0]),[dims[1]]),dims))
-	
-	#indices = tf.constant([[0],[1]])
-	#updates = tf.constant(1/k)
-	#shape = tf.constant(dims)
-	#return tf.scatter_nd(indices, updates, shape)
 
-
-R = get_responsibilities(Y, [3,3], 1)
+Y = get_responsibilities(Y, [3,3], 2)
 
 sess = tf.Session()
 sess.run(tf.global_variables_initializer())
+
 print sess.run(Y)
-print sess.run(R)
