@@ -82,7 +82,8 @@ def plot():
 	for k in [1,3,5,50]:
 		y = f(k, x, x, x.size, True)
 		a = open("a1_" + str(k) + ".txt", "w")
-		a.write(y)
+		for b in y[0]:
+			a.write(str(b) + "\n")
 		a.close()
 		plt.figure()
 		plt.plot(x,np.transpose(y))
