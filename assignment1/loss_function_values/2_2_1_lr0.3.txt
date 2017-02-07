@@ -1,8 +1,8 @@
-6.40565e+12
-1.98019e+26
+4.70818e+11
+1.1297e+24
 inf
-inf
-inf
+nan
+nan
 nan
 nan
 nan

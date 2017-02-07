@@ -31,15 +31,15 @@ def q2function(l_rate):
 		#Weight-decay coefficient
 		lam = 1
 		#Defines the loss function
-		y_predict = tf.matmul(x,W) + b
+		y_pre = tf.matmul(x,W)
 		#print "y_pre", y_pre.get_shape()
 		#b = tf.expand_dims(b, 0)
 		#print "b", b.get_shape()
-		#y_predict = tf.add(y_pre,b)
+		y_predict = tf.add(y_pre,b)
 		#print "y_predict", y_predict.get_shape()
 		l_d = tf.reduce_mean(tf.pow(tf.subtract(y_predict, y_target),2))
 		#print l_d.get_shape()
-		l_w = lam * tf.reduce_sum(tf.pow(W, 2))/2
+		l_w = tf.scalar_mul( lam/2, tf.reduce_sum(tf.pow(W, 2)))
 		l_cost = l_d + l_w
 		#Define the gradient descent training step
 		train_step = tf.train.GradientDescentOptimizer(learning_rate).minimize(l_cost)
