@@ -91,7 +91,7 @@ def plot():
 	plt.show()
 		
 
-plot()
+notplot()
 
 
 
