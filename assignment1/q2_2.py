@@ -95,20 +95,20 @@ def q2function(l_rate, batch_size, lam, classify = False):
 			f_write.write(str(val) + "\n")
 		
 		if classify:
-			predictions = sess.run(y_predict, feed_dict={x: testData, y_target: testTarget})
+			predictions = sess.run(y_predict, feed_dict={x: validData, y_target: validTarget})
 			correct = 0.0
 			count = 0
 			for n in range(len(predictions)):
-				if predictions[n] > 0.5 and testTarget[n] > 0.5:
+				if predictions[n] > 0.5 and validTarget[n] > 0.5:
 					correct += 1
-				elif predictions[n] < 0.5 and testTarget[n] < 0.5:
+				elif predictions[n] < 0.5 and validTarget[n] < 0.5:
 					correct += 1
 				count += 1
 			#print "b", sess.run(b)
 			print "lam: ", lam
 			print "count", count
 			print "correct: ", correct
-			print "percent: ", correct/len(testTarget)
+			print "percent: ", correct/len(validTarget)
 
 
 for i in [0.,0.0001,0.0004,0.0006,0.0008,0.001, 0.002,0.004,0.006,0.008,0.01,0.1,1.]:#0.001,0.005,0.01,0.05,0.1,0.2,0.3]:
