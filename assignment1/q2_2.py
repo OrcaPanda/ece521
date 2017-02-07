@@ -15,8 +15,8 @@ def q2function(l_rate):
 
 		#Hyperparameters and other parameters
 		learning_rate = l_rate
-		epoch = 1000
-		batch_size = 700
+		epoch = 500
+		batch_size = 50
 		training_size = len(trainData)
 		#print training_size
 		#Define threshold for stopping
@@ -40,7 +40,7 @@ def q2function(l_rate):
 		l_d = tf.reduce_mean(tf.pow(tf.subtract(y_predict, y_target),2))
 		#print l_d.get_shape()
 		l_w = lam * tf.reduce_sum(tf.pow(W, 2))/2
-		l_cost = l_d # + l_w
+		l_cost = l_d + l_w
 		#Define the gradient descent training step
 		train_step = tf.train.GradientDescentOptimizer(learning_rate).minimize(l_cost)
 
@@ -61,12 +61,15 @@ def q2function(l_rate):
 			#shuf_trainData[:], shuf_trainTarget[:] = zip(*combined)
 			#Go through each of the batches within the epoch	
 			
-			indexes = range(0,700)
-			rand_index = random.shuffle(indexes)
-			
+			rand_index = range(0,700)
+			random.shuffle(rand_index)
 			for k in range(0, training_size, batch_size):
 				#Get the batches and run
-				batch_xs, batch_ys = trainData[rand_index[k : k+batch_size]], trainTarget[rand_index[k : k+batch_size]]
+				batch_xs, batch_ys = [],[]
+				for val in rand_index[k:k+batch_size]:
+					batch_xs.append(trainData[rand_index[val]])
+					batch_ys.append(trainTarget[rand_index[val]])
+				#trainData[rand_index[k : k+batch_size]], trainTarget[rand_index[k : k+batch_size]]
 				sess.run(train_step, feed_dict={x: batch_xs, y_target: batch_ys})
 				#Compute the cost
 				
