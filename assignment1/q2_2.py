@@ -111,6 +111,6 @@ def q2function(l_rate, batch_size, lam, classify = False):
 			print "percent: ", correct/len(validTarget)
 
 
-for i in [0.,0.0001,0.0004,0.0006,0.0008,0.001, 0.002,0.004,0.006,0.008,0.01,0.1,1.]:#0.001,0.005,0.01,0.05,0.1,0.2,0.3]:
-	print "learning rate: ",i
+for i in [0.,0.0001,0.001,0.01,0.1,1.]:#[0.,0.0001,0.0004,0.0006,0.0008,0.001, 0.002,0.004,0.006,0.008,0.01,0.1,1.]:#0.001,0.005,0.01,0.05,0.1,0.2,0.3]:
+	#print "learning rate: ",i
 	q2function(0.01,50,i,True)

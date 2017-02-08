@@ -27,18 +27,19 @@ def euclid_distance(X, Z):
 	Z = (tf.expand_dims(Z, 0))
 	return tf.reduce_sum(tf.squared_difference(X, Z), 2)
 
-#Kxx
-def exp_kernel(D, lam):
-	
-	return tf.exp( tf.scalar_mul(-lam, D) ) 
-
-def soft_knn(kx):
-	
-	return tf.truediv( kx, tf.reduce_sum(kx, 0) )
-	#return tf.scalar_mul( 1.0/tf.reduce_sum(kx,0), kx  )
-
-def gauss_reg(kXx, kxx):
-	return tf.matmul( tf.matrix_inverse(kXx), kxx)
+def get_responsibilities(D, dims, k):
+	#Get the indices of the shortest distances
+	values, indices = tf.nn.top_k(tf.transpose(tf.multiply(D,-1)), k)
+	#print indices.get_shape()
+	#and reshape them into a 1D tensor
+	indices = tf.reshape(indices, [dims[0]*k, ])
+	#get indices for where to update the responsibility vectors
+	I = tf.reshape(tf.add(tf.expand_dims(tf.range(0, dims[0]),1), tf.zeros([dims[0], k], tf.int32)), [dims[0] * k, ])
+	#convert the indices to int64
+	update_indices = tf.to_int64(tf.stack([I, indices], 1))
+	#The responsibility vectors have 1/k for each value
+	values = tf.add(tf.zeros([dims[0] * k, ]), 1.0/k)
+	return tf.sparse_to_dense(update_indices, dims, values, validate_indices = False)
 
 def f(k, comparisonData, comparisonTarget, size_of_set, returnPredictions=False):
 
@@ -50,43 +51,19 @@ def f(k, comparisonData, comparisonTarget, size_of_set, returnPredictions=False)
 	sess = tf.Session()
 	sess.run(tf.global_variables_initializer())
 	
-	lam = 100
-
-	# soft kern
-	#print X.get_shape(), X_T.get_shape()
+	# Question 1.3.2
 	D_train = euclid_distance(X, X_T)
-	print D_train.get_shape()
-	kernel = exp_kernel(D_train, lam)
-	print kernel.get_shape()
-	R_train_soft = soft_knn(kernel)
-	print R_train_soft.get_shape(), Y.get_shape()
-	P_train_soft = tf.transpose(tf.matmul(tf.transpose(R_train_soft), Y))
-		
-
-	
-	D_trainXX = euclid_distance(X, X)	
-
-	kernel_KXX = exp_kernel(D_trainXX, lam)
-	extra = tf.matrix_inverse(kernel_KXX)
-	R_train_gaus = gauss_reg(kernel_KXX, kernel)
-	print kernel_KXX.get_shape()
-	P_train_gaus = tf.transpose(tf.matmul(tf.transpose(R_train_gaus), Y))
-
-
-
 	#print D_train.get_shape()
-	#R_train = tf.cast(get_responsibilities(D_train, [size_of_set,80], k), tf.float64) 
+	R_train = tf.cast(get_responsibilities(D_train, [size_of_set,80], k), tf.float64) 
 	#print R_train.get_shape(), trainD.get_shape()
 	#print R_train.get_shape(), Y
+	P_train = tf.transpose(tf.matmul(R_train, Y))
 
-	#MSE = tf.reduce_sum(tf.pow(tf.subtract(P_train, tf.transpose(Y_T)),2)) / (2*size_of_set)
-	#if (not returnPredictions):
-	#	print sess.run(MSE, feed_dict = {X:trainData, X_T: comparisonData, Y: trainTarget, Y_T: comparisonTarget})
-	#else:
-	print sess.run(extra, feed_dict = {X:trainData, X_T: comparisonData, Y
-    : trainTarget, Y_T: comparisonTarget})
-	return sess.run(P_train_gaus, feed_dict = {X:trainData, X_T: comparisonData, Y: trainTarget, Y_T: comparisonTarget})
-
+	MSE = tf.reduce_sum(tf.pow(tf.subtract(P_train, tf.transpose(Y_T)),2)) / (2*size_of_set)
+	if (not returnPredictions):
+		print sess.run(MSE, feed_dict = {X:trainData, X_T: comparisonData, Y: trainTarget, Y_T: comparisonTarget})
+	else:
+		return sess.run(P_train, feed_dict = {X:trainData, X_T: comparisonData, Y: trainTarget, Y_T: comparisonTarget})
 def notplot():
 	for t in [[testData, testTarget, "test",10], [validData, validTarget, "valid",10], [trainData, trainTarget, "train",80]]:
 		print t[2]
@@ -101,27 +78,17 @@ def notplot():
 			#print s
 
 def plot():
-
-	with np.load ("data1D.npz") as data :
-
-		print data
-		trainData, trainTarget = data ["x"], data["y"]
-		validData, validTarget = data ["x_valid"], data ["y_valid"]
-		testData, testTarget = data ["x_test"], data ["y_test"]
-		input()
-
 	x = np.linspace(0.0, 11.0, num = 1000)[:,np.newaxis]
-	for k in [1]:
-		y = f(k, testData, testTarget, testTarget.size, True)
-		a = open("a1_4_gauss.txt", "w")
+	for k in [1,3,5,50]:
+		y = f(k, x, x, x.size, True)
+		a = open("a1_" + str(k) + ".txt", "w")
 		for b in y[0]:
 			a.write(str(b) + "\n")
-			print str(b)
 		a.close()
-		#plt.figure()
-		#plt.plot(x,np.transpose(y))
+		plt.figure()
+		plt.plot(x,np.transpose(y))
 		
-	#plt.show()
+	plt.show()
 		
 
 plot()
