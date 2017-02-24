@@ -16,8 +16,9 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/assignment2$q1_2_MulticlassClassification.coverage" NAME="q1_2_MulticlassClassification Coverage Results" MODIFIED="1487905781405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ece521_hw2$q1LogisticRegression.coverage" NAME="q1LogisticRegression Coverage Results" MODIFIED="1487892090777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/assignment2$q2_3_2_Layers.coverage" NAME="q2_3_2_Layers Coverage Results" MODIFIED="1487972139652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/assignment2$q1LogisticRegression.coverage" NAME="q1LogisticRegression Coverage Results" MODIFIED="1487900390043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/assignment2$q2_2_Feedforward.coverage" NAME="q2_2_Feedforward Coverage Results" MODIFIED="1487967627772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/assignment2$q2_2_Feedforward.coverage" NAME="q2_2_Feedforward Coverage Results" MODIFIED="1487968086281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -31,8 +32,8 @@
       <file leaf-file-name="q1LogisticRegression.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/q1LogisticRegression.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="752">
-              <caret line="102" column="27" selection-start-line="102" selection-start-column="27" selection-end-line="102" selection-end-column="27" />
+            <state relative-caret-position="194">
+              <caret line="132" column="26" selection-start-line="132" selection-start-column="26" selection-end-line="132" selection-end-column="26" />
               <folding>
                 <element signature="e#193#216#0" expanded="true" />
               </folding>
@@ -43,7 +44,7 @@
       <file leaf-file-name="q1_2_MulticlassClassification.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/q1_2_MulticlassClassification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2431">
+            <state relative-caret-position="534">
               <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
               <folding>
                 <element signature="e#140#163#0" expanded="true" />
@@ -52,13 +53,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="q2_2_Feedforward.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="q2_2_Feedforward.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/q2_2_Feedforward.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="245">
-              <caret line="55" column="47" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
+              <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
               <folding>
                 <element signature="e#140#163#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="q2_3_1_HiddenUnits.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/q2_3_1_HiddenUnits.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-452">
+              <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="26" />
+              <folding>
+                <element signature="e#175#198#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="q2_3_2_Layers.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/q2_3_2_Layers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="449">
+              <caret line="174" column="23" selection-start-line="174" selection-start-column="23" selection-end-line="174" selection-end-column="23" />
+              <folding>
+                <element signature="e#169#192#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -83,6 +108,7 @@
         <option value="$PROJECT_DIR$/q1_2_MulticlassClassification.py" />
         <option value="$PROJECT_DIR$/q2_3_1_HiddenUnits.py" />
         <option value="$PROJECT_DIR$/q2_2_Feedforward.py" />
+        <option value="$PROJECT_DIR$/q2_3_2_Layers.py" />
       </list>
     </option>
   </component>
@@ -152,7 +178,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.q2_2_Feedforward">
+  <component name="RunManager" selected="Python.q2_3_2_Layers">
     <configuration default="false" name="q1LogisticRegression" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -203,6 +229,24 @@
       <module name="ece521_hw2" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/q2_2_Feedforward.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="q2_3_2_Layers" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="ece521_hw2" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/q2_3_2_Layers.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -415,16 +459,18 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.q1LogisticRegression" />
       <item index="1" class="java.lang.String" itemvalue="Python.q1_2_MulticlassClassification" />
       <item index="2" class="java.lang.String" itemvalue="Python.q2_2_Feedforward" />
+      <item index="3" class="java.lang.String" itemvalue="Python.q2_3_2_Layers" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.q2_2_Feedforward" />
-        <item index="1" class="java.lang.String" itemvalue="Python.q1_2_MulticlassClassification" />
-        <item index="2" class="java.lang.String" itemvalue="Python.q1LogisticRegression" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.q2_3_2_Layers" />
+        <item index="1" class="java.lang.String" itemvalue="Python.q2_2_Feedforward" />
+        <item index="2" class="java.lang.String" itemvalue="Python.q1_2_MulticlassClassification" />
+        <item index="3" class="java.lang.String" itemvalue="Python.q1LogisticRegression" />
       </list>
     </recent_temporary>
   </component>
@@ -489,7 +535,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/q2_2_Feedforward.py</url>
-          <line>183</line>
+          <line>186</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
@@ -599,20 +645,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/q1_2_MulticlassClassification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+          <folding>
+            <element signature="e#140#163#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/q1LogisticRegression.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
-          <caret line="102" column="27" selection-start-line="102" selection-start-column="27" selection-end-line="102" selection-end-column="27" />
+        <state relative-caret-position="194">
+          <caret line="132" column="26" selection-start-line="132" selection-start-column="26" selection-end-line="132" selection-end-column="26" />
           <folding>
             <element signature="e#193#216#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/q1_2_MulticlassClassification.py">
+    <entry file="file://$PROJECT_DIR$/q2_2_Feedforward.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2431">
-          <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+        <state relative-caret-position="245">
+          <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
           <folding>
             <element signature="e#140#163#0" expanded="true" />
           </folding>
@@ -621,17 +677,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/q2_3_1_HiddenUnits.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="197" column="14" selection-start-line="197" selection-start-column="14" selection-end-line="197" selection-end-column="14" />
+        <state relative-caret-position="-452">
+          <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="26" />
+          <folding>
+            <element signature="e#175#198#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/q2_2_Feedforward.py">
+    <entry file="file://$PROJECT_DIR$/q2_3_2_Layers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="55" column="47" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
+        <state relative-caret-position="449">
+          <caret line="174" column="23" selection-start-line="174" selection-start-column="23" selection-end-line="174" selection-end-column="23" />
           <folding>
-            <element signature="e#140#163#0" expanded="true" />
+            <element signature="e#169#192#0" expanded="true" />
           </folding>
         </state>
       </provider>
