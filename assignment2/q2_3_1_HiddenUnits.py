@@ -10,6 +10,7 @@ import sys
 import matplotlib
 import matplotlib.pyplot as plt
 
+import pickle
 
 def add_layer(inputTensor, hiddenUnits):
     inputSize = inputTensor.get_shape().as_list()[1]
@@ -26,6 +27,7 @@ def reformat(dataset, labels):
     return dataset, labels
 
 def neural_net(learning_rate, epoch, hidden_units, number_of_layers):
+    tf.reset_default_graph()
     ###############################################################
     # IMPORTING TEN CLASS DATASET
     ###############################################################
@@ -160,12 +162,12 @@ def neural_net(learning_rate, epoch, hidden_units, number_of_layers):
 
         return accuracy_array_test, accuracy_array_train, accuracy_array_valid, loss_array_test, loss_array_train, loss_array_valid
 
-
+if __name__ == "__main__":
     ###############################################################
     # RUNNING FOR DIFFERENT PARAMETERS
     ###############################################################
     learning_rate = 0.001
-    epoch = 100;
+    epoch = 100
     number_of_layers = 1
     accuracy_test = []
     accuracy_train = []
@@ -187,21 +189,18 @@ def neural_net(learning_rate, epoch, hidden_units, number_of_layers):
     # PLOTTING VALIDATION ERROR
     ###############################################################
 
-    x = list(range(1, len(accuracy_array_test) + 1))
-    plt.plot(x, 1 - accuracy_valid[0], label='100 Hidden Units')
-    plt.plot(x, accuracy_valid[1], label='500 Hidden Units')
-    plt.plot(x, accuracy_valid[2], label='1000 Hidden Units')
+    x = list(range(1, epoch + 1))
+    plt.plot(x, 1 - np.array(accuracy_valid[0]), label='100 Hidden Units')
+    plt.plot(x, 1 - np.array(accuracy_valid[1]), label='500 Hidden Units')
+    plt.plot(x, 1 - np.array(accuracy_valid[2]), label='1000 Hidden Units')
     plt.ylabel('Error (%)')
     plt.xlabel('Epochs')
     plt.title('SGD notMNIST Error for Different Number of Hidden Units lr-' + str(learning_rate))
     plt.legend()
     plt.show()
 
-
-
-
-
-
+    total_results = accuracy_train, accuracy_valid, accuracy_test, loss_train, loss_valid, loss_test
+    pickle.dump( total_results, open("data2_3.p", "wb") )
     # x = list(range(1, len(accuracy_array_test) + 1))
     # plt.plot(x, accuracy_array_test, label='Test Data')
     # plt.plot(x, accuracy_array_train, label='Training Data')
