@@ -165,7 +165,7 @@ def neural_net(learning_rate, epoch, hidden_units):
 
         return accuracy_array_test, accuracy_array_train, accuracy_array_valid, loss_array_test, loss_array_train, loss_array_valid
 
-
+if __name__ == "__main__":
     ###############################################################
     # RUNNING FOR DIFFERENT PARAMETERS
     ###############################################################
@@ -178,7 +178,7 @@ def neural_net(learning_rate, epoch, hidden_units):
     loss_train = []
     loss_valid = []
 
-    for hidden_units in (500):
+    for hidden_units in [500]:
         results = neural_net(learning_rate, epoch, hidden_units)
         accuracy_test.append(results[0])
         accuracy_train.append(results[1])
@@ -198,10 +198,11 @@ def neural_net(learning_rate, epoch, hidden_units):
     plt.xlabel('Epochs')
     plt.title('SGD notMNIST Error for Two Layers lr-' + str(learning_rate))
     plt.legend()
-    plt.show()
-
+    #plt.show()
+    plt.savefig("figure_q2_3_2_error_lr" + str(learning_rate) + ".png")
+    plt.clf()
     total_results = accuracy_train, accuracy_valid, accuracy_test, loss_train, loss_valid, loss_test
-    pickle.dump(total_results, open("data2_3_2.p", "wb"))
+    #pickle.dump(total_results, open("data2_3_2.p", "wb"))
     # x = list(range(1, len(accuracy_array_test) + 1))
     # plt.plot(x, accuracy_array_test, label='Test Data')
     # plt.plot(x, accuracy_array_train, label='Training Data')
