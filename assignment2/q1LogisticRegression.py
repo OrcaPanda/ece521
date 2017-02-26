@@ -6,6 +6,7 @@ import tensorflow as tf
 import numpy as np
 import random
 import sys
+import pickle
 
 import matplotlib
 import matplotlib.pyplot as plt
@@ -68,7 +69,8 @@ with np.load("notMNIST.npz") as data :
     y_pred_sigmoid = tf.nn.sigmoid(y_pred)
     l_cost = l_d + l_w
     #Define the gradient descent training step
-    train_step = tf.train.GradientDescentOptimizer(learning_rate).minimize(l_cost)
+    #train_step = tf.train.GradientDescentOptimizer(learning_rate).minimize(l_cost)
+    train_step = tf.train.AdamOptimizer(learning_rate).minimize(l_cost)
 
     sess = tf.Session()
     sess.run(tf.global_variables_initializer())
@@ -131,6 +133,11 @@ with np.load("notMNIST.npz") as data :
         accuracy_array_train.append(correct / len(compTarget))
 
     plt.interactive(False)
+
+    pickle.dump(accuracy_array_train, open("q1_ADAM_training_accuracy","wb"))
+    pickle.dump(accuracy_array_test, open("q1_ADAM_test_accuracy","wb"))
+    pickle.dump(loss_array_train, open("q1_ADAM_training_loss","wb"))
+    pickle.dump(loss_array_test, open("q1_ADAM_test_loss","wb"))
 
     x = list(range(1, len(accuracy_array_test)+1))
     plt.plot(x, accuracy_array_test, label = 'Test Data' )
