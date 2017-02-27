@@ -48,7 +48,7 @@ with np.load("notMNIST.npz") as data:
     # SETTING UP HYPER PARAMETERS
     ###############################################################
     learning_rate = 0.001
-    epoch = 100
+    epoch = 150
     batch_size = 500
     training_size = len(trainData)
     lam = 0.0003
@@ -66,7 +66,7 @@ with np.load("notMNIST.npz") as data:
 
     with tf.variable_scope("layer_1"):
         z1_no_do = add_layer(x, hidden_units)
-        z1_do = tf.nn.dropout(z1_no_do, 1.0)
+        z1_do = tf.nn.dropout(z1_no_do, 0.5)
         tf.get_variable_scope().reuse_variables()
         W1 = tf.get_variable("weights")
 
@@ -171,9 +171,13 @@ with np.load("notMNIST.npz") as data:
         if float(i + 1) in savepoints * epoch:
             pickle_count += 1
             res = sess.run(W1)
-            pickle.dump(res, open("no_dropout" + str(pickle_count), "wb"))
+            #pickle.dump(res, open("no_dropout" + str(pickle_count), "wb"))
 
         plt.interactive(False)
+
+    parameters = learning_rate, 1, hidden_units, lam, 0.5
+    total_results = accuracy_array_train, accuracy_array_valid, accuracy_array_test, loss_array_train, loss_array_valid, loss_array_test, parameters
+    pickle.dump(total_results, open("q2_4_dropout_plot_data", "wb"));
 
     x = list(range(1, len(accuracy_array_test) + 1))
     plt.plot(x, accuracy_array_test, label='Test Data')
@@ -183,7 +187,7 @@ with np.load("notMNIST.npz") as data:
     plt.xlabel('Epochs')
     plt.title('notMNIST Accuracy lr-' + str(learning_rate))
     plt.legend(bbox_to_anchor=(.7, .8), loc=2, borderaxespad=0.)
-    plt.show()
+    #plt.show()
     #plt.savefig("figure_q2_4_dropout_accuracy" + str(learning_rate) + ".png")
     #plt.clf()
 
@@ -195,7 +199,7 @@ with np.load("notMNIST.npz") as data:
     plt.xlabel('Epochs')
     plt.title('notMNIST Cross Entropy Loss lr-' + str(learning_rate))
     plt.legend(bbox_to_anchor=(.7, .8), loc=2, borderaxespad=0.)
-    plt.show()
+    #plt.show()
     #plt.savefig("figure_q2_4_dropout_accuracy" + str(learning_rate) + ".png")
 
     print("hello")

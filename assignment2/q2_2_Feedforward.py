@@ -46,8 +46,8 @@ with np.load("notMNIST.npz") as data:
     ###############################################################
     # SETTING UP HYPER PARAMETERS
     ###############################################################
-    learning_rate = 0.1
-    epoch = 100
+    learning_rate = 0.001
+    epoch = 250
     batch_size = 500
     training_size = len(trainData)
     lam = 0.0003
@@ -164,9 +164,9 @@ with np.load("notMNIST.npz") as data:
     plt.plot(x, accuracy_array_test, label='Test Data')
     plt.plot(x, accuracy_array_train, label='Training Data')
     plt.plot(x, accuracy_array_valid, label='Validation Data')
-    plt.ylabel('Accuracy (%)')
+    plt.ylabel('Accuracy')
     plt.xlabel('Epochs')
-    plt.title('SGD notMNIST Accuracy lr-' + str(learning_rate))
+    plt.title('notMNIST Accuracy lr-' + str(learning_rate))
     plt.legend(bbox_to_anchor=(.7, .8), loc=2, borderaxespad=0.)
     plt.show()
 
@@ -179,7 +179,7 @@ with np.load("notMNIST.npz") as data:
     plt.plot(x, loss_array_valid, label='Validation Data')
     plt.ylabel('Cross Entropy Loss')
     plt.xlabel('Epochs')
-    plt.title('SGD notMNIST Cross Entropy Loss lr-' + str(learning_rate))
+    plt.title('notMNIST Cross Entropy Loss lr-' + str(learning_rate))
     plt.legend(bbox_to_anchor=(.7, .8), loc=2, borderaxespad=0.)
     plt.show()
     #plt.savefig("Loss" + str(learning_rate) + ".png")
