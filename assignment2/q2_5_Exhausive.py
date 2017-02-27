@@ -1,5 +1,5 @@
 ###############################################################
-# Part 2.3.1 Different number of hidden units
+# Part 2.5 Exhaustive Search
 ###############################################################
 
 import tensorflow as tf
@@ -174,60 +174,68 @@ if __name__ == "__main__":
     ###############################################################
     # RUNNING FOR DIFFERENT PARAMETERS
     ###############################################################
-    learning_rate = 0.001
-    epoch = 100
-    number_of_layers = 1
-    batch_size = 500
-    weight_decay = 0.0003
-    keep_prob = 0.5
 
-    accuracy_test = []
-    accuracy_train = []
-    accuracy_valid = []
-    loss_test = []
-    loss_train = []
-    loss_valid = []
+    for index in (range(10)):
+        epoch = 200
+        batch_size = 500
 
-    for hidden_units in [500]:
-        results = neural_net(learning_rate, epoch, hidden_units, number_of_layers, weight_decay, keep_prob, batch_size)
-        accuracy_test.append(results[0])
-        accuracy_train.append(results[1])
-        accuracy_valid.append(results[2])
-        loss_test.append(results[3])
-        loss_train.append(results[4])
-        loss_valid.append(results[5])
+        learning_rate = np.exp((3.0)*np.random.random()-7.5)
+        number_of_layers = int(np.floor(5*np.random.random())+1)
+        number_of_hu = int(np.floor(401 * np.random.random()))+100
+        weight_decay = np.exp((3.0) * np.random.random() - 9.0)
+        keep_prob = 1.0
+        if(np.random.random() >= 0.5):
+            keep_prob = 0.5
 
-    ###############################################################
-    # PLOTTING VALIDATION ERROR
-    ###############################################################
+        parameters = learning_rate, number_of_layers, number_of_hu, weight_decay, keep_prob
 
-    x = list(range(1, epoch + 1))
-    plt.plot(x, 1 - np.array(accuracy_valid[0]), label='100 Hidden Units')
-    plt.ylabel('Error (%)')
-    plt.xlabel('Epochs')
-    plt.title('SGD notMNIST Error for Different Number of Hidden Units lr-' + str(learning_rate))
-    plt.legend()
-    plt.show()
+        accuracy_test = []
+        accuracy_train = []
+        accuracy_valid = []
+        loss_test = []
+        loss_train = []
+        loss_valid = []
 
-    total_results = accuracy_train, accuracy_valid, accuracy_test, loss_train, loss_valid, loss_test
-    pickle.dump( total_results, open("data2_3.p", "wb") )
-    # x = list(range(1, len(accuracy_array_test) + 1))
-    # plt.plot(x, accuracy_array_test, label='Test Data')
-    # plt.plot(x, accuracy_array_train, label='Training Data')
-    # plt.plot(x, accuracy_array_valid, label='Validation Data')
-    # plt.ylabel('Accuracy (%)')
-    # plt.xlabel('Epochs')
-    # plt.title('SGD notMNIST Accuracy lr-' + str(learning_rate))
-    # plt.legend(bbox_to_anchor=(.7, .8), loc=2, borderaxespad=0.)
-    # plt.show()
-    #
-    # x = list(range(1, len(accuracy_array_test) + 1))
-    # plt.plot(x, loss_array_test, label='Test Data')
-    # plt.plot(x, loss_array_train, label='Training Data')
-    # plt.plot(x, loss_array_valid, label='Validation Data')
-    # plt.ylabel('Cross Entropy Loss')
-    # plt.xlabel('Epochs')
-    # plt.title('SGD notMNIST Cross Entropy Loss lr-' + str(learning_rate))
-    # plt.legend(bbox_to_anchor=(.7, .8), loc=2, borderaxespad=0.)
-    # plt.show()
-    print("hello")
+        for hidden_units in [number_of_hu]:
+            results = neural_net(learning_rate, epoch, hidden_units, number_of_layers, weight_decay, keep_prob, batch_size)
+            accuracy_test.append(results[0])
+            accuracy_train.append(results[1])
+            accuracy_valid.append(results[2])
+            loss_test.append(results[3])
+            loss_train.append(results[4])
+            loss_valid.append(results[5])
+
+        ###############################################################
+        # PLOTTING VALIDATION ERROR
+        ###############################################################
+
+        x = list(range(1, epoch + 1))
+        # plt.plot(x, 1 - np.array(accuracy_valid[0]), label='100 Hidden Units')
+        # plt.ylabel('Error (%)')
+        # plt.xlabel('Epochs')
+        # plt.title('SGD notMNIST Error for Different Number of Hidden Units lr-' + str(learning_rate))
+        # plt.legend()
+        # plt.show()
+
+        total_results = accuracy_train, accuracy_valid, accuracy_test, loss_train, loss_valid, loss_test, parameters
+        pickle.dump( total_results, open("q2_5-"+str(learning_rate)+"_"+str(number_of_layers)+"_"+str(number_of_hu)+"_"+str(weight_decay)+"_"+str(keep_prob)+".p", "wb") )
+        # x = list(range(1, len(accuracy_array_test) + 1))
+        # plt.plot(x, accuracy_array_test, label='Test Data')
+        # plt.plot(x, accuracy_array_train, label='Training Data')
+        # plt.plot(x, accuracy_array_valid, label='Validation Data')
+        # plt.ylabel('Accuracy (%)')
+        # plt.xlabel('Epochs')
+        # plt.title('SGD notMNIST Accuracy lr-' + str(learning_rate))
+        # plt.legend(bbox_to_anchor=(.7, .8), loc=2, borderaxespad=0.)
+        # plt.show()
+        #
+        # x = list(range(1, len(accuracy_array_test) + 1))
+        # plt.plot(x, loss_array_test, label='Test Data')
+        # plt.plot(x, loss_array_train, label='Training Data')
+        # plt.plot(x, loss_array_valid, label='Validation Data')
+        # plt.ylabel('Cross Entropy Loss')
+        # plt.xlabel('Epochs')
+        # plt.title('SGD notMNIST Cross Entropy Loss lr-' + str(learning_rate))
+        # plt.legend(bbox_to_anchor=(.7, .8), loc=2, borderaxespad=0.)
+        # plt.show()
+        print("hello")
