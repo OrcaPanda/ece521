@@ -63,8 +63,12 @@ with np.load("notMNIST.npz") as data :
     b = tf.Variable(0.0)
 
     y_pred = tf.placeholder(tf.float32, [None,1])
-    l_d2 = tf.scalar_mul(0.5, tf.pow(tf.subtract(y_pred, y_target), 2))
-    l_d1 = tf.nn.sigmoid_cross_entropy_with_logits(labels=y_target, logits=y_pred)
+    l_d2 = tf.pow(tf.subtract(y_pred, y_target), 2)
+
+    ### prediction after sigmoid
+    l_d1 = -tf.log( 1 - y_pred )
+
+    #l_d1 = tf.nn.sigmoid_cross_entropy_with_logits(labels=y_target, logits=y_pred)
 
     #l_w = tf.scalar_mul(lam, tf.nn.l2_loss(W))
     #y_pred_sigmoid = tf.nn.sigmoid(y_pred)
