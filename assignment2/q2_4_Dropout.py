@@ -66,7 +66,7 @@ with np.load("notMNIST.npz") as data:
 
     with tf.variable_scope("layer_1"):
         z1_no_do = add_layer(x, hidden_units)
-        z1_do = tf.nn.dropout(z1_no_do, 0.5)
+        z1_do = tf.nn.dropout(z1_no_do, 1.0)
         tf.get_variable_scope().reuse_variables()
         W1 = tf.get_variable("weights")
 
@@ -171,7 +171,7 @@ with np.load("notMNIST.npz") as data:
         if float(i + 1) in savepoints * epoch:
             pickle_count += 1
             res = sess.run(W1)
-            pickle.dump(res, open("dropout" + str(pickle_count), "wb"))
+            pickle.dump(res, open("no_dropout" + str(pickle_count), "wb"))
 
         plt.interactive(False)
 
@@ -179,13 +179,13 @@ with np.load("notMNIST.npz") as data:
     plt.plot(x, accuracy_array_test, label='Test Data')
     plt.plot(x, accuracy_array_train, label='Training Data')
     plt.plot(x, accuracy_array_valid, label='Validation Data')
-    plt.ylabel('Accuracy (%)')
+    plt.ylabel('Accuracy')
     plt.xlabel('Epochs')
-    plt.title('SGD notMNIST Accuracy lr-' + str(learning_rate))
+    plt.title('notMNIST Accuracy lr-' + str(learning_rate))
     plt.legend(bbox_to_anchor=(.7, .8), loc=2, borderaxespad=0.)
-    #plt.show()
-    plt.savefig("figure_q2_4_dropout_accuracy" + str(learning_rate) + ".png")
-    plt.clf()
+    plt.show()
+    #plt.savefig("figure_q2_4_dropout_accuracy" + str(learning_rate) + ".png")
+    #plt.clf()
 
     x = list(range(1, len(accuracy_array_test) + 1))
     plt.plot(x, loss_array_test, label='Test Data')
@@ -193,9 +193,9 @@ with np.load("notMNIST.npz") as data:
     plt.plot(x, loss_array_valid, label='Validation Data')
     plt.ylabel('Cross Entropy Loss')
     plt.xlabel('Epochs')
-    plt.title('SGD notMNIST Cross Entropy Loss lr-' + str(learning_rate))
+    plt.title('notMNIST Cross Entropy Loss lr-' + str(learning_rate))
     plt.legend(bbox_to_anchor=(.7, .8), loc=2, borderaxespad=0.)
-    #plt.show()
-    plt.savefig("figure_q2_4_dropout_accuracy" + str(learning_rate) + ".png")
+    plt.show()
+    #plt.savefig("figure_q2_4_dropout_accuracy" + str(learning_rate) + ".png")
 
     print("hello")
