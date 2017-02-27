@@ -47,8 +47,8 @@ with np.load("notMNIST.npz") as data:
     ###############################################################
     # SETTING UP HYPER PARAMETERS
     ###############################################################
-    learning_rate = 0.001
-    epoch = 150
+    learning_rate = 0.0001
+    epoch = 100
     batch_size = 500
     training_size = len(trainData)
     lam = 0.0003
@@ -66,7 +66,7 @@ with np.load("notMNIST.npz") as data:
 
     with tf.variable_scope("layer_1"):
         z1_no_do = add_layer(x, hidden_units)
-        z1_do = tf.nn.dropout(z1_no_do, 0.5)
+        z1_do = tf.nn.dropout(z1_no_do, 1.0)
         tf.get_variable_scope().reuse_variables()
         W1 = tf.get_variable("weights")
 
@@ -168,16 +168,16 @@ with np.load("notMNIST.npz") as data:
         accuracy_array_valid.append(correct / len(compTarget))
 
         print(str(float(i + 1)))
-        if float(i + 1) in savepoints * epoch:
+        if ((i + 1)%5 == 0):
             pickle_count += 1
             res = sess.run(W1)
-            #pickle.dump(res, open("no_dropout" + str(pickle_count), "wb"))
+            pickle.dump(res, open("no_dropout" + str(i+1), "wb"))
 
         plt.interactive(False)
 
-    parameters = learning_rate, 1, hidden_units, lam, 0.5
+    parameters = learning_rate, 1, hidden_units, lam, 1.0
     total_results = accuracy_array_train, accuracy_array_valid, accuracy_array_test, loss_array_train, loss_array_valid, loss_array_test, parameters
-    pickle.dump(total_results, open("q2_4_dropout_plot_data", "wb"));
+    pickle.dump(total_results, open("q2_4_no_dropout_plot_data_lr0.0001", "wb"));
 
     x = list(range(1, len(accuracy_array_test) + 1))
     plt.plot(x, accuracy_array_test, label='Test Data')
