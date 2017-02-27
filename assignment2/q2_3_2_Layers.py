@@ -192,15 +192,15 @@ if __name__ == "__main__":
     ###############################################################
 
     x = list(range(1, epoch + 1))
-    plt.plot(x, 1 - np.array(accuracy_valid[0]), label='2 Layers, 500 Hidden Units Each')
-
-    plt.ylabel('Error (%)')
+    plt.plot(x, 1 - np.array(accuracy_valid[0]), label='Validation Set')
+    plt.plot(x, 1 - np.array(accuracy_train[0]), label='Training Set')
+    plt.ylabel('Error')
     plt.xlabel('Epochs')
-    plt.title('SGD notMNIST Error for Two Layers lr-' + str(learning_rate))
+    plt.title('ADAM notMNIST Error for 2 Layers 500 Hidden Units lr-' + str(learning_rate))
     plt.legend()
-    #plt.show()
-    plt.savefig("figure_q2_3_2_error_lr" + str(learning_rate) + ".png")
-    plt.clf()
+    plt.show()
+    #plt.savefig("figure_q2_3_2_error_lr" + str(learning_rate) + ".png")
+    #plt.clf()
     total_results = accuracy_train, accuracy_valid, accuracy_test, loss_train, loss_valid, loss_test
     #pickle.dump(total_results, open("data2_3_2.p", "wb"))
     # x = list(range(1, len(accuracy_array_test) + 1))

@@ -69,8 +69,8 @@ with np.load("notMNIST.npz") as data :
     y_pred_sigmoid = tf.nn.sigmoid(y_pred)
     l_cost = l_d + l_w
     #Define the gradient descent training step
-    #train_step = tf.train.GradientDescentOptimizer(learning_rate).minimize(l_cost)
-    train_step = tf.train.AdamOptimizer(learning_rate).minimize(l_cost)
+    train_step = tf.train.GradientDescentOptimizer(learning_rate).minimize(l_cost)
+    #train_step = tf.train.AdamOptimizer(learning_rate).minimize(l_cost)
 
     sess = tf.Session()
     sess.run(tf.global_variables_initializer())
@@ -134,17 +134,17 @@ with np.load("notMNIST.npz") as data :
 
     plt.interactive(False)
 
-    pickle.dump(accuracy_array_train, open("q1_ADAM_training_accuracy","wb"))
-    pickle.dump(accuracy_array_test, open("q1_ADAM_test_accuracy","wb"))
-    pickle.dump(loss_array_train, open("q1_ADAM_training_loss","wb"))
-    pickle.dump(loss_array_test, open("q1_ADAM_test_loss","wb"))
+    #pickle.dump(accuracy_array_train, open("q1_ADAM_training_accuracy","wb"))
+    #pickle.dump(accuracy_array_test, open("q1_ADAM_test_accuracy","wb"))
+    #pickle.dump(loss_array_train, open("q1_ADAM_training_loss","wb"))
+    #pickle.dump(loss_array_test, open("q1_ADAM_test_loss","wb"))
 
     x = list(range(1, len(accuracy_array_test)+1))
     plt.plot(x, accuracy_array_test, label = 'Test Data' )
     plt.plot(x, accuracy_array_train, label='Training Data')
     plt.ylabel('Accuracy (%)')
     plt.xlabel('Epochs')
-    plt.title('SGD notMNIST Accuracy lr-0.001')
+    plt.title('notMNIST Accuracy with SGD lr-0.001')
     plt.legend(bbox_to_anchor=(.7, .8), loc=2, borderaxespad=0.)
     plt.show()
 
@@ -153,7 +153,7 @@ with np.load("notMNIST.npz") as data :
     plt.plot(x, loss_array_train, label='Training Data')
     plt.ylabel('Cross Entropy Loss')
     plt.xlabel('Epochs')
-    plt.title('SGD notMNIST Cross Entropy Loss lr-0.001')
+    plt.title('notMNIST Cross Entropy Loss with SGD lr-0.001')
     plt.legend(bbox_to_anchor=(.7, .8), loc=2, borderaxespad=0.)
     plt.show()
 
