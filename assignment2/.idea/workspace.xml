@@ -14,14 +14,14 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/assignment2$q2_4_Dropout.coverage" NAME="q2_4_Dropout Coverage Results" MODIFIED="1488155560861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/assignment2$q2_4_Dropout.coverage" NAME="q2_4_Dropout Coverage Results" MODIFIED="1488233353781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/assignment2$q1_2_MulticlassClassification.coverage" NAME="q1_2_MulticlassClassification Coverage Results" MODIFIED="1487905781405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ece521_hw2$q1LogisticRegression.coverage" NAME="q1LogisticRegression Coverage Results" MODIFIED="1487892090777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/assignment2$q2_5_Exhausive.coverage" NAME="q2_5_Exhausive Coverage Results" MODIFIED="1488160431932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/assignment2$q2_3_2_Layers.coverage" NAME="q2_3_2_Layers Coverage Results" MODIFIED="1488154560178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/assignment2$q2_4_Visualization.coverage" NAME="q2_4_Visualization Coverage Results" MODIFIED="1488158732869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/assignment2$q2_4_Visualization.coverage" NAME="q2_4_Visualization Coverage Results" MODIFIED="1488232728862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/assignment2$q1LogisticRegression.coverage" NAME="q1LogisticRegression Coverage Results" MODIFIED="1488153825667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/assignment2$q2_2_Feedforward.coverage" NAME="q2_2_Feedforward Coverage Results" MODIFIED="1487968086281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/assignment2$q2_2_Feedforward.coverage" NAME="q2_2_Feedforward Coverage Results" MODIFIED="1488162899965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -59,8 +59,8 @@
       <file leaf-file-name="q2_2_Feedforward.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/q2_2_Feedforward.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2703">
-              <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+            <state relative-caret-position="330">
+              <caret line="174" column="0" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
               <folding>
                 <element signature="e#140#163#0" expanded="true" />
               </folding>
@@ -92,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="q2_4_Dropout.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="q2_4_Dropout.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/q2_4_Dropout.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="172" column="30" selection-start-line="172" selection-start-column="30" selection-end-line="172" selection-end-column="30" />
+            <state relative-caret-position="335">
+              <caret line="149" column="22" selection-start-line="149" selection-start-column="22" selection-end-line="149" selection-end-column="22" />
               <folding>
                 <element signature="e#140#163#0" expanded="true" />
               </folding>
@@ -107,8 +107,8 @@
       <file leaf-file-name="q2_4_Visualization.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/q2_4_Visualization.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="32" column="73" selection-start-line="32" selection-start-column="73" selection-end-line="32" selection-end-column="73" />
+            <state relative-caret-position="340">
+              <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
               <folding>
                 <element signature="e#154#177#0" expanded="true" />
               </folding>
@@ -116,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="q2_5_Exhausive.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="q2_5_Exhausive.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/q2_5_Exhausive.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="179" column="24" selection-start-line="179" selection-start-column="24" selection-end-line="179" selection-end-column="24" />
+            <state relative-caret-position="92">
+              <caret line="189" column="8" selection-start-line="189" selection-start-column="8" selection-end-line="189" selection-end-column="91" />
               <folding>
                 <element signature="e#158#181#0" expanded="true" />
               </folding>
@@ -145,12 +145,12 @@
       <list>
         <option value="$PROJECT_DIR$/q1_2_MulticlassClassification.py" />
         <option value="$PROJECT_DIR$/q2_3_1_HiddenUnits.py" />
-        <option value="$PROJECT_DIR$/q2_2_Feedforward.py" />
         <option value="$PROJECT_DIR$/q1LogisticRegression.py" />
         <option value="$PROJECT_DIR$/q2_3_2_Layers.py" />
-        <option value="$PROJECT_DIR$/q2_4_Dropout.py" />
-        <option value="$PROJECT_DIR$/q2_4_Visualization.py" />
         <option value="$PROJECT_DIR$/q2_5_Exhausive.py" />
+        <option value="$PROJECT_DIR$/q2_2_Feedforward.py" />
+        <option value="$PROJECT_DIR$/q2_4_Visualization.py" />
+        <option value="$PROJECT_DIR$/q2_4_Dropout.py" />
       </list>
     </option>
   </component>
@@ -220,25 +220,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.q2_5_Exhausive">
-    <configuration default="false" name="q1LogisticRegression" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="ece521_hw2" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/q1LogisticRegression.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.q2_4_Dropout">
     <configuration default="false" name="q2_3_2_Layers" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -307,6 +289,24 @@
       <module name="ece521_hw2" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/q2_5_Exhausive.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="q2_2_Feedforward" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="ece521_hw2" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/q2_2_Feedforward.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -520,19 +520,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.q1LogisticRegression" />
-      <item index="1" class="java.lang.String" itemvalue="Python.q2_3_2_Layers" />
-      <item index="2" class="java.lang.String" itemvalue="Python.q2_4_Dropout" />
-      <item index="3" class="java.lang.String" itemvalue="Python.q2_4_Visualization" />
-      <item index="4" class="java.lang.String" itemvalue="Python.q2_5_Exhausive" />
+      <item index="0" class="java.lang.String" itemvalue="Python.q2_3_2_Layers" />
+      <item index="1" class="java.lang.String" itemvalue="Python.q2_4_Dropout" />
+      <item index="2" class="java.lang.String" itemvalue="Python.q2_4_Visualization" />
+      <item index="3" class="java.lang.String" itemvalue="Python.q2_5_Exhausive" />
+      <item index="4" class="java.lang.String" itemvalue="Python.q2_2_Feedforward" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.q2_5_Exhausive" />
+        <item index="0" class="java.lang.String" itemvalue="Python.q2_4_Dropout" />
         <item index="1" class="java.lang.String" itemvalue="Python.q2_4_Visualization" />
-        <item index="2" class="java.lang.String" itemvalue="Python.q2_4_Dropout" />
-        <item index="3" class="java.lang.String" itemvalue="Python.q2_3_2_Layers" />
-        <item index="4" class="java.lang.String" itemvalue="Python.q1LogisticRegression" />
+        <item index="2" class="java.lang.String" itemvalue="Python.q2_2_Feedforward" />
+        <item index="3" class="java.lang.String" itemvalue="Python.q2_5_Exhausive" />
+        <item index="4" class="java.lang.String" itemvalue="Python.q2_3_2_Layers" />
       </list>
     </recent_temporary>
   </component>
@@ -562,7 +562,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969433" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27510917" sideWeight="0.49761903" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27510917" sideWeight="0.49761903" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -777,16 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/q2_2_Feedforward.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2703">
-          <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
-          <folding>
-            <element signature="e#140#163#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/q2_3_1_HiddenUnits.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -817,32 +807,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/q2_4_Dropout.py">
+    <entry file="file://$PROJECT_DIR$/q2_2_Feedforward.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="172" column="30" selection-start-line="172" selection-start-column="30" selection-end-line="172" selection-end-column="30" />
+        <state relative-caret-position="330">
+          <caret line="174" column="0" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
           <folding>
             <element signature="e#140#163#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/q2_5_Exhausive.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="189" column="8" selection-start-line="189" selection-start-column="8" selection-end-line="189" selection-end-column="91" />
+          <folding>
+            <element signature="e#158#181#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/q2_4_Visualization.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="32" column="73" selection-start-line="32" selection-start-column="73" selection-end-line="32" selection-end-column="73" />
+        <state relative-caret-position="340">
+          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
           <folding>
             <element signature="e#154#177#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/q2_5_Exhausive.py">
+    <entry file="file://$PROJECT_DIR$/q2_4_Dropout.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="179" column="24" selection-start-line="179" selection-start-column="24" selection-end-line="179" selection-end-column="24" />
+        <state relative-caret-position="335">
+          <caret line="149" column="22" selection-start-line="149" selection-start-column="22" selection-end-line="149" selection-end-column="22" />
           <folding>
-            <element signature="e#158#181#0" expanded="true" />
+            <element signature="e#140#163#0" expanded="true" />
           </folding>
         </state>
       </provider>

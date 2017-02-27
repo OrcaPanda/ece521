@@ -47,7 +47,7 @@ with np.load("notMNIST.npz") as data:
     ###############################################################
     # SETTING UP HYPER PARAMETERS
     ###############################################################
-    learning_rate = 0.001
+    learning_rate = 0.0001
     epoch = 100
     batch_size = 500
     training_size = len(trainData)
@@ -168,12 +168,16 @@ with np.load("notMNIST.npz") as data:
         accuracy_array_valid.append(correct / len(compTarget))
 
         print(str(float(i + 1)))
-        if float(i + 1) in savepoints * epoch:
+        if ((i + 1)%5 == 0):
             pickle_count += 1
             res = sess.run(W1)
-            pickle.dump(res, open("no_dropout" + str(pickle_count), "wb"))
+            pickle.dump(res, open("no_dropout" + str(i+1), "wb"))
 
         plt.interactive(False)
+
+    parameters = learning_rate, 1, hidden_units, lam, 1.0
+    total_results = accuracy_array_train, accuracy_array_valid, accuracy_array_test, loss_array_train, loss_array_valid, loss_array_test, parameters
+    pickle.dump(total_results, open("q2_4_no_dropout_plot_data_lr0.0001", "wb"));
 
     x = list(range(1, len(accuracy_array_test) + 1))
     plt.plot(x, accuracy_array_test, label='Test Data')
@@ -183,7 +187,7 @@ with np.load("notMNIST.npz") as data:
     plt.xlabel('Epochs')
     plt.title('notMNIST Accuracy lr-' + str(learning_rate))
     plt.legend(bbox_to_anchor=(.7, .8), loc=2, borderaxespad=0.)
-    plt.show()
+    #plt.show()
     #plt.savefig("figure_q2_4_dropout_accuracy" + str(learning_rate) + ".png")
     #plt.clf()
 
@@ -195,7 +199,7 @@ with np.load("notMNIST.npz") as data:
     plt.xlabel('Epochs')
     plt.title('notMNIST Cross Entropy Loss lr-' + str(learning_rate))
     plt.legend(bbox_to_anchor=(.7, .8), loc=2, borderaxespad=0.)
-    plt.show()
+    #plt.show()
     #plt.savefig("figure_q2_4_dropout_accuracy" + str(learning_rate) + ".png")
 
     print("hello")

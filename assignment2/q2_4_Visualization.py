@@ -20,9 +20,9 @@ if __name__ == "__main__":
     W_nd_75 = pickle.load(open("no_dropout3", "rb"))
     W_nd_100 = pickle.load(open("no_dropout4", "rb"))
 
-    IMAGE = np.zeros((40*28, 25*28))
-    for y in list(range(40)):
-       for x in list(range(25)):
+    IMAGE = np.zeros((10*28, 10*28))
+    for y in list(range(10)):
+       for x in list(range(10)):
            for y1 in list(range(28)):
                for x1 in list(range(28)):
                    IMAGE[y*28+y1,x*28+x1] = W_d_100[y1*28+x1,y*25+x]
