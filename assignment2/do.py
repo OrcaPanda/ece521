@@ -165,6 +165,9 @@ def neural_net(learning_rate, epoch, hidden_units, number_of_layers, weight_deca
                     correct += 1
                 count += 1
             accuracy_array_valid.append(correct / len(compTarget))
+            if ((i + 1)%5 == 0):
+                res = sess.run(all_w[0])
+                pickle.dump(res, open("q2_4_dropout/dropout" + str(i), "wb"))
 
         plt.interactive(False)
 
@@ -176,7 +179,7 @@ if __name__ == "__main__":
     ###############################################################
 
     for index in (range(1)):
-        epoch = 100
+        epoch = 150
         batch_size = 500
 
         learning_rate = np.exp((3.0)*np.random.random()-7.5)
