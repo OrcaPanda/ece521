@@ -62,11 +62,14 @@ def neural_net(learning_rate, epoch, hidden_units, number_of_layers, weight_deca
         z = x
         all_w = []
 
-        for num in list(range(number_of_layers)):
+        num = 0
+        print(hidden_units)
+        for units in hidden_units:
             with tf.variable_scope("layer_" + str(num)):
-                z = tf.nn.relu(tf.nn.dropout(add_layer(z, hidden_units), kp))
+                z = tf.nn.relu(tf.nn.dropout(add_layer(z, units), kp))
                 tf.get_variable_scope().reuse_variables()
                 all_w.append(tf.get_variable("weights"))
+            num += 1
 
         with tf.variable_scope("layer_output"):
             y = add_layer(z, 10)
@@ -181,12 +184,15 @@ if __name__ == "__main__":
 
         learning_rate = np.exp((3.0)*np.random.random()-7.5)
         number_of_layers = int(np.floor(5*np.random.random())+1)
-        number_of_hu = int(np.floor(401 * np.random.random()))+100
+
+        number_of_hu = []
+        for k in range(number_of_layers):
+            number_of_hu.append( int(np.floor(401 * np.random.random()))+100)
         weight_decay = np.exp((3.0) * np.random.random() - 9.0)
         keep_prob = 1.0
         if(np.random.random() >= 0.5):
             keep_prob = 0.5
-        learning_rate, number_of_layers, number_of_hu, weight_decay, keep_prob = 0.0001, 1, 1000, 0.0003, 0.5
+        learning_rate, number_of_layers, number_of_hu, weight_decay, keep_prob = 0.00070512244750083291, 5, [236, 438, 326, 298, 496], 0.0017, 1.0
 
         parameters = learning_rate, number_of_layers, number_of_hu, weight_decay, keep_prob
         print(parameters)
@@ -198,14 +204,15 @@ if __name__ == "__main__":
         loss_train = []
         loss_valid = []
 
-        for hidden_units in [number_of_hu]:
-            results = neural_net(learning_rate, epoch, hidden_units, number_of_layers, weight_decay, keep_prob, batch_size)
-            accuracy_test.append(results[0])
-            accuracy_train.append(results[1])
-            accuracy_valid.append(results[2])
-            loss_test.append(results[3])
-            loss_train.append(results[4])
-            loss_valid.append(results[5])
+        hidden_units = number_of_hu
+
+        results = neural_net(learning_rate, epoch, hidden_units, number_of_layers, weight_decay, keep_prob, batch_size)
+        accuracy_test.append(results[0])
+        accuracy_train.append(results[1])
+        accuracy_valid.append(results[2])
+        loss_test.append(results[3])
+        loss_train.append(results[4])
+        loss_valid.append(results[5])
 
         ###############################################################
         # PLOTTING VALIDATION ERROR
@@ -218,7 +225,7 @@ if __name__ == "__main__":
         # plt.title('SGD notMNIST Error for Different Number of Hidden Units lr-' + str(learning_rate))
         # plt.legend()
         # plt.show()
-
+	
         total_results = accuracy_train, accuracy_valid, accuracy_test, loss_train, loss_valid, loss_test, parameters
         pickle.dump( total_results, open("q2_5-"+str(learning_rate)+"_"+str(number_of_layers)+"_"+str(number_of_hu)+"_"+str(weight_decay)+"_"+str(keep_prob)+".p", "wb") )
         # x = list(range(1, len(accuracy_array_test) + 1))
