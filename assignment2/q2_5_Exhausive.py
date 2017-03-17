@@ -179,14 +179,14 @@ if __name__ == "__main__":
         epoch = 100
         batch_size = 500
 
-        learning_rate = np.exp((3.0)*np.random.random()-7.5)
-        number_of_layers = int(np.floor(5*np.random.random())+1)
-        number_of_hu = int(np.floor(401 * np.random.random()))+100
-        weight_decay = np.exp((3.0) * np.random.random() - 9.0)
-        keep_prob = 1.0
-        if(np.random.random() >= 0.5):
-            keep_prob = 0.5
-        learning_rate, number_of_layers, number_of_hu, weight_decay, keep_prob = 0.0001, 1, 1000, 0.0003, 0.5
+        #learning_rate = np.exp((3.0)*np.random.random()-7.5)
+        #number_of_layers = int(np.floor(5*np.random.random())+1)
+        #number_of_hu = int(np.floor(401 * np.random.random()))+100
+        #weight_decay = np.exp((3.0) * np.random.random() - 9.0)
+        #keep_prob = 1.0
+        #if(np.random.random() >= 0.5):
+        #    keep_prob = 0.5
+        learning_rate, number_of_layers, number_of_hu, weight_decay, keep_prob = 0.00333716, 2, 400, 0.00043443, 0.76
 
         parameters = learning_rate, number_of_layers, number_of_hu, weight_decay, keep_prob
         print(parameters)
