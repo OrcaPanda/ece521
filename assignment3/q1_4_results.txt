@@ -1,0 +1,5 @@
+Loss for k = 1 : 12877.4
+Loss for k = 2 : 3140.12
+Loss for k = 3 : 1744.86
+Loss for k = 4 : 1132.77
+Loss for k = 5 : 977.345

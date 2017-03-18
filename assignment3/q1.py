@@ -4,10 +4,12 @@ import matplotlib
 import matplotlib.pyplot as plt
 import pickle
 
-
+np.random.seed(521)
 
 data = np.load("data2D.npy")
-
+np.random.shuffle(data)
+trainingData = data[0:6666]
+validationData = data[6666:10000]
 #######################################################################
 #
 # Hyperparameters
@@ -40,19 +42,19 @@ for k in range(1, 6):
 
     loss = []
     for i in range(epoch):
-        print("Epoch: ", i)
-        sess.run(train_step, feed_dict={x: data})
-        loss.append(sess.run(L, feed_dict={x: data}))
+        #print("Epoch: ", i)
+        sess.run(train_step, feed_dict={x: trainingData})
+        loss.append(sess.run(L, feed_dict={x: validationData}))
 
     centers = sess.run(mu)
-    k_distribution = sess.run(closest_k, feed_dict={x: data})
+    k_distribution = sess.run(closest_k, feed_dict={x: validationData})
     clustered_results = []
     for i in range(k):
         clustered_results.append([])
 
     index = 0
     for which_k in k_distribution:
-        clustered_results[which_k].append(data[index])
+        clustered_results[which_k].append(validationData[index])
         index += 1
 
     # Save the result
@@ -77,6 +79,7 @@ for k in range(1, 6):
     plt.grid(True)
     plt.xlabel('x1')
     plt.ylabel('x2')
-    plt.title('Q1.3 Clustered results')
+    plt.title('Q1.4 Clustered results - Validation dataset')
     plt.legend()
     plt.show()
+    print("Loss for k = " + str(k) + " : " + str(loss[-1]))
