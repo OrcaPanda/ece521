@@ -6,7 +6,7 @@ import pickle
 
 np.random.seed(521)
 
-data = np.load("data2D.npy")
+data = np.load("data100D.npy")
 np.random.shuffle(data)
 trainingData = data[0:6666]
 validationData = data[6666:10000]
@@ -58,14 +58,14 @@ for k in range(1, 6):
         index += 1
 
     # Save the result
-    pickle.dump(loss, open("q1_loss.pkl", "wb"))
+    pickle.dump(loss, open("q2_2_3_loss_k_" + str(k) + ".pkl", "wb"))
 
     # Visualization
     plot_x = list(range(len(loss)))
     plt.plot(plot_x, loss, label='Loss per Update')
     plt.xlabel('Updates')
     plt.ylabel('Loss')
-    plt.title('Q1.2 Loss per Update')
+    plt.title('Q2.2.3 Loss per Update')
     plt.legend()
     plt.show()
 
@@ -81,5 +81,5 @@ for k in range(1, 6):
     plt.ylabel('x2')
     plt.title('Q1.4 Clustered results - Validation dataset')
     plt.legend()
-    plt.show()
+    #plt.show()
     print("Loss for k = " + str(k) + " : " + str(loss[-1]))
