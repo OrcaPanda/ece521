@@ -6,7 +6,7 @@ import pickle
 
 np.random.seed(521)
 
-data = np.load("data100D.npy")
+data = np.load("data2D.npy")
 np.random.shuffle(data)
 trainingData = data[0:6666]
 validationData = data[6666:10000]
@@ -18,7 +18,7 @@ epoch = 1000
 lr = 0.01
 #
 #######################################################################
-for k in [20]:
+for k in [1, 2, 3, 4, 5]:
     # Create a TF variable with normal-sampled initial values
     mu = tf.Variable(tf.random_normal([k, data.shape[1]], stddev=0.01))
     # x is K x B x D
@@ -58,7 +58,7 @@ for k in [20]:
         index += 1
 
     # Save the result
-    pickle.dump(loss, open("q2_2_4_loss_k_" + str(k) + ".pkl", "wb"))
+    # pickle.dump((loss, centers, k_distribution), open("q2_2_4_loss_k_" + str(k) + ".pkl", "wb"))
 
     # Visualization
     plot_x = list(range(len(loss)))
@@ -68,7 +68,7 @@ for k in [20]:
     plt.title('Q2.2.3 Loss per Update')
     plt.legend()
     #plt.show()
-
+    
     colors = ('g', 'r', 'b', 'y', 'm')
     for i in range(k):
         a = np.array(clustered_results[i])

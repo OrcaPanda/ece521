@@ -16,7 +16,7 @@ def log_prob_dens_func(X, mu, variance):
 
     sX = tf.subtract(X, mu) # B x K x D
     eS = tf.reduce_sum(tf.multiply(tf.square(sX), tf.reciprocal(variance)), 2) # B x K
-    return (-D * tf.log(2*math.pi) - tf.log(tf.reduce_prod(variance, 2)) / 2 - eS) / 2 # B x K
+    return (-D * tf.log(2*math.pi) - tf.reduce_sum(tf.log(variance), 2) / 2 - eS) / 2 # B x K
 
 def log_prob_clust_var(X, pi, mu, variance):
     # pi is 1 x K
@@ -25,7 +25,7 @@ def log_prob_clust_var(X, pi, mu, variance):
     return log_prob_dens_func(X, mu, variance) + tf.log(pi) - rlse # B x K
 
 k = 3
-epoch = 10000
+epoch = 1500
 
 np.random.seed(521)
 tf.set_random_seed(521)
@@ -37,7 +37,7 @@ validationData = data[6666:10000]
 lr = 0.01
 D = data.shape[1]
 
-for k in range(4,6):
+for k in [10]:
 
     phi = tf.Variable(tf.random_normal([k, D], stddev=0.01))
     exp_var = tf.exp(phi) # K x D
@@ -59,25 +59,14 @@ for k in range(4,6):
     sess = tf.Session()
     sess.run(init)
 
-    print(log_prob_dens_func(X,mu,exp_var).shape)
-
     B = len(data)
     loss = []
     for i in range(epoch):
         sess.run(train_step, feed_dict={X: trainingData})
         loss.append(sess.run(L, feed_dict={X: validationData}))
 
-        nnn = sess.run(mu)
-        www = sess.run(exp_var)
-        mmm = sess.run(soft_pi)
         if i % 100 == 0:
             print(i)
-        if i == 158:
-            print("ABL")
-
-        if math.isnan(loss[-1]):
-            abc = sess.run(temp, feed_dict={X: validationData})
-            print("NAN")
 
         # print("Epoch: ", i, loss[i])
         # if i % 100 == 0:
@@ -89,7 +78,9 @@ for k in range(4,6):
 
     centers = sess.run(mu)
     std = sess.run(exp_var)
-    pickle.dump((loss, centers, std), open("q2_2_100D_" + str(k) +".pkl", "wb"))
+    k_distribution = sess.run(tf.argmax(log_prob_dens_func(X, mu, exp_var) + soft_pi, axis=1),
+                              feed_dict={X: validationData})
+    pickle.dump((loss, centers, std, k_distribution), open("q2_2_100D_" + str(k) +".pkl", "wb"))
 
     # print(sess.run(mu))
     # k = sess.run(tf.exp(log_prob_dens_func(X,mu[0],exp_var)), feed_dict={X: sess.run(mu)})
@@ -103,31 +94,29 @@ for k in range(4,6):
     #     sum2 += x[2]
     # print(sum0, sum1, sum2)
 
-    k_distribution = sess.run(tf.argmax(log_prob_dens_func(X,mu,exp_var) + soft_pi, axis=1), feed_dict={X: validationData})
-
-    clustered_results = []
-    for i in range(k):
-        clustered_results.append([])
-
-    index = 0
-    for which_k in k_distribution:
-        clustered_results[which_k].append(validationData[index])
-        index += 1
-
-
-    colors = ('g', 'r', 'b', 'y', 'm')
-    for i in range(k):
-        a = np.array(clustered_results[i])
-        percentage = len(a) / len(validationData) * 100.
-        lbl = 'Cluster {}: {:0.2f}% of data points'.format(str(i + 1), percentage)
-        if len(a)!=0:
-            plt.plot( a[:,0], a[:,1], colors[i] + '.', label= lbl )
-        plt.plot(centers[i][0], centers[i][1], 'k' + '.', markersize=20)
-    plt.grid(True)
-    plt.xlabel('x1')
-    plt.ylabel('x2')
-    plt.title('Q2.2.2 ' + str(k) + ' Clustered results - Validation dataset ' )
-    plt.legend()
-    plt.savefig('2_2_2_K_' + str(k) + '_100_mog.png')
-    plt.clf()
-    print("Loss for k = " + str(k) + " : " + str(loss[-1]))
+    # clustered_results = []
+    # for i in range(k):
+    #     clustered_results.append([])
+    #
+    # index = 0
+    # for which_k in k_distribution:
+    #     clustered_results[which_k].append(validationData[index])
+    #     index += 1
+    #
+    #
+    # colors = ('g', 'r', 'b', 'y', 'm')
+    # for i in range(k):
+    #     a = np.array(clustered_results[i])
+    #     percentage = len(a) / len(validationData) * 100.
+    #     lbl = 'Cluster {}: {:0.2f}% of data points'.format(str(i + 1), percentage)
+    #     if len(a)!=0:
+    #         plt.plot( a[:,0], a[:,1], colors[i] + '.', label= lbl )
+    #     plt.plot(centers[i][0], centers[i][1], 'k' + '.', markersize=20)
+    # plt.grid(True)
+    # plt.xlabel('x1')
+    # plt.ylabel('x2')
+    # plt.title('Q2.2.2 ' + str(k) + ' Clustered results - Validation dataset ' )
+    # plt.legend()
+    # plt.savefig('2_2_2_K_' + str(k) + '_100_mog.png')
+    # plt.clf()
+    # print("Loss for k = " + str(k) + " : " + str(loss[-1]))
