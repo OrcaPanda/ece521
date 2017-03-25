@@ -14,11 +14,11 @@ validationData = data[6666:10000]
 #
 # Hyperparameters
 #
-epoch = 800
+epoch = 1000
 lr = 0.01
 #
 #######################################################################
-for k in range(1, 6):
+for k in [20]:
     # Create a TF variable with normal-sampled initial values
     mu = tf.Variable(tf.random_normal([k, data.shape[1]], stddev=0.01))
     # x is K x B x D
@@ -42,7 +42,7 @@ for k in range(1, 6):
 
     loss = []
     for i in range(epoch):
-        #print("Epoch: ", i)
+        print("Epoch: ", i)
         sess.run(train_step, feed_dict={x: trainingData})
         loss.append(sess.run(L, feed_dict={x: validationData}))
 
@@ -58,7 +58,7 @@ for k in range(1, 6):
         index += 1
 
     # Save the result
-    pickle.dump(loss, open("q2_2_3_loss_k_" + str(k) + ".pkl", "wb"))
+    pickle.dump(loss, open("q2_2_4_loss_k_" + str(k) + ".pkl", "wb"))
 
     # Visualization
     plot_x = list(range(len(loss)))
@@ -67,7 +67,7 @@ for k in range(1, 6):
     plt.ylabel('Loss')
     plt.title('Q2.2.3 Loss per Update')
     plt.legend()
-    plt.show()
+    #plt.show()
 
     colors = ('g', 'r', 'b', 'y', 'm')
     for i in range(k):
